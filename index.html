@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sachi Tourism</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* SAME DESIGN AS BEFORE */
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif;}
+body{background:#fdfdfd;scroll-behavior:smooth;}
+.navbar{width:100%;background:#ffffffcc;backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:space-between;padding:15px 40px;position:fixed;top:0;z-index:1000;box-shadow:0 4px 20px rgba(0,0,0,0.1);}
+.logo-section{display:flex;align-items:center;gap:10px;}
+.logo{height:45px;border-radius:8px;}
+.brand-text{font-weight:600;font-size:20px;color:#1b1b1b;}
+.search-container{flex:1;display:flex;justify-content:center;align-items:center;}
+.search-box{display:flex;align-items:center;background:#f4f4f4;border-radius:25px;padding:6px 15px;width:60%;max-width:450px;box-shadow:0 2px 8px rgba(0,0,0,0.08);}
+.search-box input{border:none;outline:none;background:transparent;flex:1;font-size:15px;color:#333;}
+.search-box button{border:none;background:#0078ff;color:#fff;border-radius:20px;padding:7px 18px;cursor:pointer;transition:0.3s;}
+.search-box button:hover{background:#005fd6;}
+.nav-links{list-style:none;display:flex;gap:30px;}
+.nav-links a{text-decoration:none;color:#222;font-weight:500;transition:0.3s;}
+.nav-links a:hover{color:#0078ff;}
+.offer-slider{display:flex;overflow:hidden;width:100%;background:#fefefe;padding:15px 0;border-bottom:1px solid #eaeaea;margin-top:80px;}
+.offer-track{display:flex;white-space:nowrap;animation:scrollOffers 25s linear infinite;}
+.offer-item{flex:0 0 auto;padding:0 40px;color:#0078ff;font-weight:500;font-size:16px;}
+@keyframes scrollOffers{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    width: auto;
+    min-height: 100%;
+    object-fit: cover;
+}
+
+.slider{width:100%;overflow:hidden;position:relative;background-color:#000;margin-top:30px;border-radius:10px;}
+.slide-track{display:flex;white-space:nowrap;animation:scrollImages 40s linear infinite;}
+.slide{width:300px;height:200px;flex:0 0 auto;margin-right:10px;cursor:pointer;transition:transform 0.3s;}
+.slide:hover{transform:scale(1.05);}
+.slide img{width:100%;height:100%;object-fit:cover;border-radius:10px;}
+@keyframes scrollImages{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+.footer{background:#0b2239;color:white;text-align:center;padding:25px;font-size:15px;margin-top:60px;}
+@media(max-width:768px){.slide{width:220px;height:150px;}.hero h1{font-size:32px;}.hero p{font-size:16px;}.search-box{width:80%;}.nav-links{gap:20px;}}
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <div class="logo-section">
+    <img src="nimages/logo.png.jpg" class="logo" alt="Logo">
+    <span class="brand-text"></span>
+  </div>
+  <div class="search-container">
+    <div class="search-box">
+      <input list="packages" id="searchInput" placeholder="Search destinations or packages...">
+      <datalist id="packages">
+        <option value="Goa"></option><option value="Kashmir"></option><option value="Andaman and Nicobar"></option>
+        <option value="Kerala"></option><option value="Rajasthan"></option><option value="Sri Lanka"></option>
+        <option value="Thailand-Mongolia-Singapore"></option><option value="Dubai"></option>
+      </datalist>
+      <button onclick="searchPackage()">Search</button>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="packages.html">Packages</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="offer-slider">
+  <div class="offer-track">
+    <div class="offer-item">WELCOME TO SACHI TOURISM CHANDRAPUR</div>
+    <div class="offer-item">🌄 EXPLORE BEAUTIFUL DESTINATIONS WITH US</div>
+    <div class="offer-item">🏖 GET YOUR DESIRED PACKAGES AT BEST DEALS</div>
+    <div class="offer-item">🏨HOTELS,✈FLIGHT BOOKINGS,🚢CRUISE BOOKINGS AVAILABLE</div>
+    <div class="offer-item">🌍 NATIONAL/INTERNATIONAL PACKAGES </div>
+    <div class="offer-item">YOU CAN CONTACT US AT-📞8600285021/✉-Sachitourism@gmail.com </div>
+  </div>
+</div>
+
+<section class="hero">
+    <video autoplay muted loop playsinline class="hero-video">
+        <source src="videos/herosectionvideo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</section>
+
+<div class="slider">
+  <div class="slide-track">
+    <div class="slide" onclick="openPackage('Goa')"><img src="images/goa.jpg" alt="Goa"></div>
+    <div class="slide" onclick="openPackage('Kashmir')"><img src="images/kashmir.webp" alt="Kashmir"></div>
+    <div class="slide" onclick="openPackage('Andaman and Nicobar')"><img src="images/andaman.jpg.jpeg" alt="Andaman"></div>
+    <div class="slide" onclick="openPackage('Kerala')"><img src="images/kerala.jpg" alt="Kerala"></div>
+    <div class="slide" onclick="openPackage('Rajasthan')"><img src="images/rajasthan.jpg" alt="Rajasthan"></div>
+    <div class="slide" onclick="openPackage('Sri Lanka')"><img src="images/sri lanka.jpg" alt="Sri Lanka"></div>
+    <div class="slide" onclick="openPackage('Thailand')"><img src="images/thailand.jpg" alt="Thailand"></div>
+    <div class="slide" onclick="openPackage('Dubai')"><img src="images/dubai.jpg" alt="Dubai"></div>
+  </div>
+</div>
+
+<footer class="footer">
+  <p>© 2025 Sachi Tourism — All rights reserved</p>
+</footer>
+
+<script>
+function searchPackage() {
+  const query = document.getElementById('searchInput').value.trim();
+  if (!query) { alert("Please select a package."); return; }
+  const url = "packages.html?package=" + encodeURIComponent(query);
+  window.location.href = url;
+}
+function openPackage(name) {
+  const url = "packages.html?package=" + encodeURIComponent(name);
+  window.location.href = url;
+}
+</script>
+</body>
+</html>

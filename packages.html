@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Packages - Sachi Tourism</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif;}
+body{background:#fdfdfd;scroll-behavior:smooth;}
+.navbar{width:100%;background:#ffffffcc;backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:space-between;padding:15px 40px;position:fixed;top:0;z-index:1000;box-shadow:0 4px 20px rgba(0,0,0,0.1);}
+.logo-section{display:flex;align-items:center;gap:10px;}
+.logo{height:45px;border-radius:8px;}
+.brand-text{font-weight:600;font-size:20px;color:#1b1b1b;}
+.search-container{flex:1;display:flex;justify-content:center;align-items:center;}
+.search-box{display:flex;align-items:center;background:#f4f4f4;border-radius:25px;padding:6px 15px;width:60%;max-width:450px;box-shadow:0 2px 8px rgba(0,0,0,0.08);}
+.search-box input{border:none;outline:none;background:transparent;flex:1;font-size:15px;color:#333;}
+.search-box button{border:none;background:#0078ff;color:#fff;border-radius:20px;padding:7px 18px;cursor:pointer;transition:0.3s;}
+.search-box button:hover{background:#005fd6;}
+.nav-links{list-style:none;display:flex;gap:30px;}
+.nav-links a{text-decoration:none;color:#222;font-weight:500;transition:0.3s;}
+.nav-links a:hover{color:#0078ff;}
+.packages{margin-top:120px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;padding:0 40px;}
+.package-card{background:#fff;border-radius:12px;box-shadow:0 3px 12px rgba(0,0,0,0.1);overflow:hidden;text-align:center;padding-bottom:20px;transition:0.3s;}
+.package-card:hover{transform:translateY(-5px);}
+.package-card img{width:100%;height:200px;object-fit:cover;}
+.package-card h3{margin:15px 0;font-size:20px;}
+.package-card button{margin:5px;border:none;padding:10px 18px;border-radius:20px;cursor:pointer;transition:0.3s;}
+.view-btn{background:#0078ff;color:#fff;}
+.view-btn:hover{background:#005fd6;}
+.whatsapp-btn{background:#25D366;color:#fff;}
+.whatsapp-btn:hover{background:#1ebe5d;}
+.form-btn{background:#ff9500;color:#fff;}
+.form-btn:hover{background:#e48400;}
+.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);align-items:center;justify-content:center;z-index:2000;}
+.modal-content{background:#fff;padding:25px;border-radius:12px;width:90%;max-width:450px;text-align:center;animation:pop 0.4s ease;position:relative;}
+@keyframes pop{from{transform:scale(0.8);opacity:0;}to{transform:scale(1);opacity:1;}}
+.modal-content img{width:100%;border-radius:10px;margin-bottom:15px;}
+.close{position:absolute;top:10px;right:20px;font-size:22px;cursor:pointer;color:#333;}
+.footer{background:#0b2239;color:white;text-align:center;padding:25px;font-size:15px;margin-top:60px;}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo-section">
+    <img src="nimages/logo.png.jpg" class="logo" alt="Logo">
+    <span class="brand-text"></span>
+  </div>
+  <div class="search-container">
+    <div class="search-box">
+      <input list="packages" id="searchInput" placeholder="Search destinations or packages...">
+      <datalist id="packages">
+        <option value="Goa"><option value="Kashmir-Vaishno-Devi-Amritsar"><option value="Leh-Ladakh-Kashmir-Kullu">
+        <option value="Kerala Tamilnadu"><option value="Rajasthan"><option value="Sri Lanka">
+        <option value="Thailand-Malasiya-Singapore"><option value="Dubai">
+      </datalist>
+      <button onclick="searchPackage()">Search</button>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="packages.html">Packages</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="packages">
+<div id="Goa" class="package-card">
+    <img src="images/goa.jpg" alt="Goa"><h3>Goa</h3>
+    <button class="view-btn" onclick="openModal('','')">View Package</button>
+    <a href="https://wa.me/918600285021?text=Hello! I'm interested in the Goa package." target="_blank"><button class="whatsapp-btn">Book on WhatsApp</button></a>
+</div>
+
+  <div id="Kashmir-Vaishno-Devi-Amritsar" class="package-card">
+    <img src="images/kashmir.webp" alt="Kashmir"><h3>Kashmir-Vaishno-Devi-Amritsar</h3>
+    <button class="view-btn" onclick="openModal('','Tour Cost: ₹27,000/- + 5% GST','Famous Tourist Attractions- Vaishnodevi Temple, Dal Lake, Golden Temple, Wagah Border, Jallianwala Bagh, Sonmarg, Shalimar Garden, Botanical Garden, Shankaracharya Temple, Gulmarg, Pahalgam')">View Package</button>
+    <a href="https://wa.me/918600285021?text=Hello! I'm interested in the Kashmir package." target="_blank"><button class="whatsapp-btn">Book on WhatsApp</button></a>
+</div>
+
+  <!-- Repeat similar for other packages -->
+  <div id="Andaman and Nicobar" class="package-card">
+    <img src="images/andaman.jpg.jpeg" alt="Andaman"><h3>Andaman and Nicobar</h3>
+    <button class="view-btn" onclick="openModal('','Island Adventure Awaits')">View Package</button>
+    <a href="https://wa.me/918600285021?text=Interested in Andaman package." target="_blank"><button class="whatsapp-btn">Book on WhatsApp</button></a>
+  </div>
+  <div id="Kerala Tamilnadu" class="package-card">
+    <img src="images/kerala.jpg" alt="Kerala Tamilnadu"><h3>Kerala Tamilnadu</h3>
+    <button class="view-btn" onclick="openModal('','Tour Cost: ₹28,000/- + 5% GST','Munnar, Poovar, Kovalam Beach, Thiruvananthapuram, Alleppey (Houseboat), Kanyakumari, Kodai Kanal, Rameshwaram, Madurai')">View Package</button>
+    <a href="https://wa.me/918600285021?text=Interested in Kerala package." target="_blank"><button class="whatsapp-btn">Book on WhatsApp</button></a>
+</div>
+  <div id="Rajasthan" class="package-card">
+    <img src="images/rajasthan.jpg" alt="Rajasthan"><h3>Rajasthan</h3>
+    <button class="view-btn" onclick="openModal('','Royal Heritage Tour')">View Package</button>
+    <a href="https://wa.me/918600285021?text=Interested in Rajasthan package." target="_blank"><button class="whatsapp-btn">Book on WhatsApp</button></a>
+</div>
+  <div id="Sri Lanka" class="package-card">
+    <img src="images/sri lanka.jpg" alt="Sri Lanka"><h3>Sri Lanka</h3>
+    <button class="view-btn" onclick="openModal('','Cultural and Beach Delight')">View Package</button>
+    <a href="https://wa.me/918600285021?text=Interested in Sri Lanka package." target="_blank"><button class="whatsapp-btn">Book on WhatsApp</button></a>
+  </div>
+  <div id="Thailand-Malasiya-Singapore" class="package-card">
+    <img src="nimages/malaysia.jpg" alt="Thailand-Malasiya-Singapore"><h3>Thailand-Malasiya-Singapore</h3>
+    <button class="view-btn" onclick="openModal('','Tour Cost: ₹1,30,000/- + 5% GST','Thailanad- Bangkok City Tour, Tiger Park & Alcazar Show ,Coral Island & Big Buddha, Safari World & Marine Park, Marble Temple & Golden Buddha Temple, Chao Phraya Dinner Cruise ','Singapore-Universal Studios, Sentosa Island Beach, Singapore Flyer, Garden by the Bay Night Show, Marina Bay Sands Photo Stop, Merlion Park Singapore City Tour,Malaysia- Cable Car & Genting Highlands, Chinese Temple & Batu Caves, Twin Tower Photo Stop, Night Fountain Show, KL Tower')">View Package</button>
+    <a href="https://wa.me/918600285021?text=Interested in Thailand-Mongolia-Singapore package." target="_blank"><button class="whatsapp-btn">Book on WhatsApp</button></a>
+ </div>
+  <div id="Hampi-Bijapur-Badami" class="package-card">
+    <img src="images/hampi.jpg" alt="Dubai"><h3>Hampi-Bijapur-Badami</h3>
+    <button class="view-btn" onclick="openModal('','Tour Cost: ₹15,000/- + 5% GST','Hampi (UNESCO World Heritage Site),Virupaksha Temple, Vittala Temple Complex, Stone Chariot, Tungabhadra Dam, Badami Caves, Pattadakal, Aihole, Gol Gumbaz (Vijayapura), Ibrahim Rauza')">View Package</button>
+    <a href="https://wa.me/918600285021?text=Interested in Hampi-Bijapur-Badami package." target="_blank"><button class="whatsapp-btn">Book on WhatsApp</button></a>
+</div>
+  <div id="Ooty-Kunnur-Coorg-Mysore" class="package-card">
+    <img src="images/ooty.jpg" alt="Ooty-Kunnur-Coorg-Mysore"><h3>Ooty-Kunnur-Coorg-Mysore</h3>
+    <button class="view-btn" onclick="openModal('','Luxury Experience with SACHITOURISM')">View Package</button>
+    <a href="https://wa.me/918600285021?text=Interested in Ooty-Kunnur-Coorg-Mysore package." target="_blank"><button class="whatsapp-btn">Book on WhatsApp</button></a>
+</div>
+  <div id="Leh-Ladakh-Kashmir-Kullu Manali" class="package-card">
+    <img src="images/leh.jpg" alt="Leh-Ladakh-Kashmir-Kullu Manali"><h3>Leh-Ladakh-Kashmir-Kullu Manali</h3>
+    <button class="view-btn" onclick="openModal('images/Kashmir','Local sightseeing (major temples & scenic locations)- City tour and cultural show , Shopping at local markets , River cruise and night attractions , Visit to major landmarks and heritage sites')">View Package</button>
+    <a href="https://wa.me/918600285021?text=Interested in Leh-Ladakh-Kashmir-Kullu Package." target="_blank"><button class="whatsapp-btn">Book on WhatsApp</button></a>
+ </div>
+  <div id= "Shimla-Kullu-Manali" class="package-card">
+    <img src="images/manali.jpg" alt="Shimla-Kullu-Manali"><h3>Shimla-Kullu-Manali</h3>
+    <button class="view-btn" onclick="openModal('','Luxury Experience with SACHITOURISM')">View Package</button>
+    <a href="https://wa.me/918600285021?text=Interested in Shimla-Kullu-Manali." target="_blank"><button class="whatsapp-btn">Book on WhatsApp</button></a>
+</div>
+  <div id="Ayodhya-Prayagraj-Varanasi" class="package-card">
+    <img src="images/ayodhya.jpg" alt="Ayodhya-Prayagraj-Varanasi"><h3>Ayodhya-Prayagraj-Varanasi</h3>
+    <button class="view-btn" onclick="openModal('','Luxury Experience with SACHITOURISM')">View Package</button>
+    <a href="https://wa.me/918600285021?text=Interested in Ayodhya-Prayagraj-Varanasi Package." target="_blank"><button class="whatsapp-btn">Book on WhatsApp</button></a>
+  </div>
+  <div id="Spiti Valley" class="package-card">
+    <img src="images/spiti valley" alt="Spiti Valley"><h3>Spiti Valley</h3>
+    <button class="view-btn" onclick="openModal('','Luxury Experience with SACHITOURISM')">View Package</button>
+    <a href="https://wa.me/918600285021?text=Interested in Spiti Valley Package." target="_blank"><button class="whatsapp-btn">Book on WhatsApp</button></a>
+</div>
+  <div id="Mechuka" class="package-card">
+    <img src="images/mechuka" alt="Mechuka"><h3>Mechuka</h3>
+    <button class="view-btn" onclick="openModal('','Luxury Experience with SACHITOURISM')">View Package</button>
+    <a href="https://wa.me/918600285021?text=Interested in Mechuka Package." target="_blank"><button class="whatsapp-btn">Book on WhatsApp</button></a>
+ </div>
+  <div id="Darjeeling" class="package-card">
+    <img src="images/Darjeeling.jpg" alt="Darjeeling"><h3>Darjeeling</h3>
+    <button class="view-btn" onclick="openModal('','Luxury Experience with SACHITOURISM')">View Package</button>
+    <a href="https://wa.me/918600285021?text=Interested in Darjeeling Package." target="_blank"><button class="whatsapp-btn">Book on WhatsApp</button></a>
+  </div> 
+  <div id="Meghalaya" class="package-card">
+    <img src="images/meghalaya.jpg" alt="Meghalaya"><h3>Meghalaya</h3>
+    <button class="view-btn" onclick="openModal('','Luxury Experience with SACHITOURISM')">View Package</button>
+    <a href="https://wa.me/918600285021?text=Interested in Meghalaya Package." target="_blank"><button class="whatsapp-btn">Book on WhatsApp</button></a>
+  </div>
+  <div id="Kaziranga and Tawang" class="package-card">
+    <img src="images/kaziranga tawang" alt="Kaziranga and Tawang"><h3>Kaziranga and Tawang</h3>
+    <button class="view-btn" onclick="openModal('','Luxury Experience with SACHITOURISM')">View Package</button>
+    <a href="https://wa.me/918600285021?text=Interested in Kaziranga and Tawang Package." target="_blank"><button class="whatsapp-btn">Book on WhatsApp</button></a>
+  </div>
+  <div id="Kaziranga" class="package-card">
+    <img src="images/kaziranga.jpg" alt="Kaziranga"><h3>Kaziranga</h3>
+    <button class="view-btn" onclick="openModal('images/dubai.jpg','Luxury Desert Experience')">View Package</button>
+    <a href="https://wa.me/918600285021?text=Interested in Kaziranga Package." target="_blank"><button class="whatsapp-btn">Book on WhatsApp</button></a>
+  </div>
+  <div id="Tawang" class="package-card">
+    <img src="images/tawang.jpg" alt="Tawang"><h3>Tawang</h3>
+    <button class="view-btn" onclick="openModal('','Luxury Experience with SACHITOURISM')">View Package</button>
+    <a href="https://wa.me/918600285021?text=Interested in Tawang Package." target="_blank"><button class="whatsapp-btn">Book on WhatsApp</button></a>
+  </div>
+  <div id="Sikkim" class="package-card">
+    <img src="images/sikkim" alt=""><h3>Sikkim</h3>
+    <button class="view-btn" onclick="openModal('','Luxury Experience with SACHITOURISM')">View Package</button>
+    <a href="https://wa.me/918600285021?text=Interested in Sikkim Package." target="_blank"><button class="whatsapp-btn">Book on WhatsApp</button></a>
+</div>
+<div id="Kaziranga and Majuli" class="package-card">
+    <img src="images/KAZIRANGA MAJULI.JPG" alt=""><h3>Kaziranga and Majuli</h3>
+    <button class="view-btn" onclick="openModal('','Luxury Experience with SACHITOURISM')">View Package</button>
+    <a href="https://wa.me/918600285021?text=Interested in Kaziranga and Majuli Package." target="_blank"><button class="whatsapp-btn">Book on WhatsApp</button></a>
+</div>
+<div id="Nagaland" class="package-card">
+    <img src="images/NAGA.JPG" alt=""><h3>Nagaland</h3>
+    <button class="view-btn" onclick="openModal('NAGA','Luxury Experience with SACHITOURISM')">View Package</button>
+    <a href="https://wa.me/918600285021?text=Interested in Nagaland Package." target="_blank"><button class="whatsapp-btn">Book on WhatsApp</button></a>
+</div>
+<div id="Amazing North-East" class="package-card">
+    <img src="images/NORTH EAST INDIA.JPG" alt=""><h3>Amazing North-East</h3>
+    <button class="view-btn" onclick="openModal('Amazing','Luxury Experience with SACHITOURISM')">View Package</button>
+    <a href="https://wa.me/918600285021?text=Interested in Amazing North-East Package." target="_blank"><button class="whatsapp-btn">Book on WhatsApp</button></a>
+</div>
+<div id="Manipur" class="package-card">
+    <img src="images/MANIPUR.JPG" alt="Manipur"><h3>Manipur</h3>
+    <button class="view-btn" onclick="openModal('MANIPUR','Luxury Experience with SACHITOURISM')">View Package</button>
+    <a href="https://wa.me/918600285021?text=Interested in  Package." target="_blank"><button class="whatsapp-btn">Book on WhatsApp</button></a>
+</div>
+<div id="Cherrapunji" class="package-card">
+    <img src="images/CHERA.JPG" alt="Cherrapunji"><h3>Cherrapunji</h3>
+    <button class="view-btn" onclick="openModal('Luxury Experience with SACHITOURISM')">View Package</button>
+    <a href="https://wa.me/918600285021?text=Interested in Cherrapunji Package." target="_blank"><button class="whatsapp-btn">Book on WhatsApp</button></a>
+</div>
+<div id="Nepal" class="package-card">
+    <img src="images/NEPAL.JPG" alt="Nepal"><h3>Nepal</h3>
+    <button class="view-btn" onclick="openModal('NEPAL','our Cost: ₹20,000/- + 5% GST','Kathmandu, Pokhara, Pashupatinath Temple, Swayambhunath Stupa, Durbar Square, Manakamana Temple (by cable car) ,Fewa Lake,  Davis Falls, Seti River Gorge, Mahendra Cave with SACHITOURISM')">View Package</button>
+    <a href="https://wa.me/918600285021?text=Interested in Nepal Package." target="_blank"><button class="whatsapp-btn">Book on WhatsApp</button></a>
+</div>
+<div id="Gujrat" class="package-card">
+    <img src="images/gujrat.jpg" alt="gujrat"><h3>GUJRAT</h3>
+    <button class="view-btn" onclick="openModal('Gujrat','Tour Cost: ₹20,000/- + 5% GST','Visit Somnath Temple, Dwarkadhish Temple, Nageshwar Jyotirlinga,  Rann of Kutch, Gir National Park, Sabarmati Ashram, Statue of Unity, Akshardham Temple (Gandhinagar), Bet Dwarka with SACHITOURISM')">View Package</button>
+    <a href="https://wa.me/918600285021?text=Interested in Gujrat Package." target="_blank"><button class="whatsapp-btn">Book on WhatsApp</button></a>
+</div>
+<div id="CHAR DHAM YATRA" class="package-card">
+    <img src="images/CHAR DHAM.JPG" alt="CHAR DHAM YATRA"><h3>CHAR DHAM YATRA</h3>
+    <button class="view-btn" onclick="openModal('CHAR DHAM YATRA','Tour Cost: ₹35,000/- + 5% GST','Visit Kedarnath, Badrinath, Yamunotri, Gangotri, Haridwar,Rishikesh with SACHI TOURISM')">View Package</button>
+    <a href="https://wa.me/918600285021?text=Interested in char dham Package." target="_blank"><button class="whatsapp-btn">Book on WhatsApp</button></a>
+</div>
+<div id="Dubai" class="package-card">
+    <img src="images/dubai.jpg" alt="Dubai"><h3>Dubai</h3>
+    <button class="view-btn" onclick="openModal('Dubai','Tour Cost: ₹85,000/- + 5% GST','Famous tourist attractions of dubai,3-star Accomodation,Return Airfare from Mumbai,PROFESSIONAL TOUR GUIDE,DAILY BREAKFAST,TOUR EXCLUDES- LUNCH DINNER, LAUNDRY, ADDITIONAL SIGHTSEEING' )">View Package</button>
+    <a href="https://wa.me/918600285021?text=Interested in char dham Package." target="_blank"><button class="whatsapp-btn">Book on WhatsApp</button></a>
+</div>
+<div id="Thailand" class="package-card">
+    <img src="images/thailand.jpg" alt="Thailanad-"><h3>Thailand</h3>
+    <button class="view-btn" onclick="openModal('Thailand','Tour Cost: ₹62,000/- + 5% GST','Famous Thailand tourist attractions,3-star Accomodation,Return Airfare from Mumbai,PROFESSIONAL TOUR GUIDE,DAILY BREAKFAST,TOUR EXCLUDES- LUNCH DINNER, LAUNDRY, ADDITIONAL SIGHTSEEING')">View Package</button>
+    <a href="https://wa.me/918600285021?text=Interested in char dham Package." target="_blank"><button class="whatsapp-btn">Book on WhatsApp</button></a>
+</div>
+
+
+</section>
+
+<!-- Single Reusable Modal -->
+<div class="modal" id="infoModal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img id="modalImg" src="" alt="">
+    <h2 id="modalTitle"></h2>
+    <p id="modalDetails" style="margin:15px 0; color:#555; line-height:1.6;"></p>
+    <p id="modalDetails" style="margin:15px 0; color:#555; line-height:1.6;"></p>
+    <p id="modalDetails" style="margin:15px 0; color:#555; line-height:1.6;"></p>
+</div>
+</div>
+
+<footer class="footer">
+  <p>© 2025 Sachi Tourism — All rights reserved</p>
+</footer>
+
+<script>
+function searchPackage(){
+  const query=document.getElementById('searchInput').value.trim();
+  if(!query){alert("Please select a package.");return;}
+  window.location.href="#"+encodeURIComponent(query);
+}
+function openModal(img,title,details){
+  document.getElementById('infoModal').style.display='flex';
+  document.getElementById('modalImg').src=img;
+  document.getElementById('modalTitle').textContent=title;
+  document.getElementById('modalDetails').textContent=details;
+  document.getElementById('modalDetails').textContent=details;
+  document.getElementById('modalDetails').textContent=details;
+}
+
+
+function closeModal(){
+  document.getElementById('infoModal').style.display='none';
+}
+window.onclick=function(event){
+  if(event.target==document.getElementById('infoModal')){closeModal();}
+}
+</script>
+
+</body>
+</html>
